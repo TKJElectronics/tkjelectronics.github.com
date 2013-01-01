@@ -4,6 +4,10 @@ jQuery.fn.loadRepositoriesOrg = function() {
   $.githubOrg("tkjelectronics",function(response) {
     //console.log(response);
     target.append('<a href="https://github.com/TKJElectronics"><h1 style="color:black">TKJ Electronics</h1></a>');
+    if(response.meta["X-RateLimit-Remaining"] == 0) {
+      //alert("Couldn't load content - You have reached the rate limit for API request to Github");
+      return;
+    }
     var repos = response.data;
     $.sortByNumberOfWatchers(repos);
     $.printRepos(repos,target);
@@ -15,6 +19,10 @@ jQuery.fn.loadRepositoriesUsers = function() {
   $.githubUser("lauszus",function(response) {
     //console.log(response);
     target.append('<a href="https://github.com/Lauszus"><h1 style="color:black">Lauszus</h1></a>');
+    if(response.meta["X-RateLimit-Remaining"] == 0) {
+      alert("Couldn't load content - You have reached the rate limit for API request to Github");
+      return;
+    }
     var repos = response.data;
     $.sortByNumberOfWatchers(repos);
     $.printRepos(repos,target);    

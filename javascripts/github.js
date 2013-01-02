@@ -26,7 +26,7 @@ jQuery.fn.loadRepositoriesUsers = function() {
     var repos = response.data;
     $.sortByNumberOfWatchers(repos);
     $.printRepos(repos,target);    
-    target.append('<a href="https://github.com/felis/USB_Host_Shield_2.0">USB_Host_Shield_2.0</a><br>'); // Also include the USB Host Shield library manually
+    target.append('<h3><a href="https://github.com/felis/USB_Host_Shield_2.0">USB_Host_Shield_2.0</a></h3>'); // Also include the USB Host Shield library manually
     target.append("Revision 2.0 of USB Host Library for Arduino.");
   });
   //this.append("<h1>mindthomas</h1>");
@@ -34,10 +34,14 @@ jQuery.fn.loadRepositoriesUsers = function() {
 jQuery.printRepos = function(repos, target) {
   $(repos).each(function() {
     if (!this.fork && this.name != "tkjelectronics.github.com") {
-      target.append('<a href="'+ this.html_url +'">' + this.name + '</a><br>');
-      target.append(this.description + '<br>');      
+      target.append('<h3><a href="'+ this.html_url +'">' + this.name + '</a></h3>');
+      target.append(replaceURLWithHTMLLinks(this.description) + '<br>');      
     }    
   });
+}
+function replaceURLWithHTMLLinks(text) { // Source: http://stackoverflow.com/a/6707547
+  var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+  return text.replace(exp,"<a href='$1'>$1</a>"); 
 }
 jQuery.sortByNumberOfWatchers = function(repos) {
   repos.sort(function(a,b) {

@@ -12,7 +12,6 @@ jQuery.fn.loadRepositoriesOrg = function() {
     $.sortByNumberOfWatchers(repos);
     $.printRepos(repos,target);
   });
-
 };
 jQuery.fn.loadRepositoriesUsers = function() {
   var target = this;
@@ -35,7 +34,7 @@ jQuery.printRepos = function(repos, target) {
   $(repos).each(function() {
     if (!this.fork && this.name != "tkjelectronics.github.com") {
       target.append('<h3><a href="'+ this.html_url +'">' + this.name + '</a></h3>');
-      target.append(replaceURLWithHTMLLinks(this.description) + '<br>');      
+      target.append(replaceURLWithHTMLLinks(this.description) + '<br><br>');      
     }    
   });
 }

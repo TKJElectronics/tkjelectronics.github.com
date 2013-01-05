@@ -58,6 +58,7 @@ body {
 
 a {
   color: #d5000d;
+  word-wrap: break-word;
 }
 a:hover {
   color: #c5000c;
@@ -152,12 +153,6 @@ a.button span {
   height: 23px;
 }
 
-#download-zip span {
-  background: transparent url(../images/zip-icon.png) 12px 50% no-repeat;
-}
-#download-tar-gz span {
-  background: transparent url(../images/tar-gz-icon.png) 12px 50% no-repeat;
-}
 #view-on-github span {
   background: transparent url(../images/octocat-icon.png) 12px 50% no-repeat;
 }
@@ -354,9 +349,6 @@ footer a:hover {
   }
   #downloads {
     margin-bottom: 25px;
-  }
-  #download-zip, #download-tar-gz {
-    display: none;
   }
   .inner {
     width: 94%;

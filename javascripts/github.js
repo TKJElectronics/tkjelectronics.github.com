@@ -72,11 +72,9 @@ jQuery.printRepos = function(repos, target) {
 function checkFileContent(divId,fileUrl,name,description) {
   $.getFileContent(fileUrl,function(response) { // It takes some time before the respond is received
     //console.log('getFileContent',response);
-    var url = 'http://' + $.base64.decode($.trim(response.content.replace(/[\n]/g, ""))); // Remove the new line, trim, and decode the base64 string
+    var url = "http://" + $.base64.decode($.trim(response.content.replace(/[\n]/g, ""))); // Remove the new line, trim, and decode the base64 string
     //console.log('Name: %s and Url: %s',name,url);
-    var id = '#' + divId;
-    $(id).append('<h3><a href="'+ url +'">' + name + '</a></h3>');
-    $(id).append(replaceURLWithHTMLLinks(description) + '<br><br>');
+    addToHtml($('#' + divId),url,name,description);
   });
 };
 function addToHtml(target,url,name,description) {

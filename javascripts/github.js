@@ -50,7 +50,7 @@ jQuery.printRepos = function(repos, target) {
               //console.log('CNAME found');
               CNAMEFound = true;
               // It take some time before the respons is received we will put the content into this div
-              target.append('<div id="site' + i + '"></div>');
+              $('<div id="site' + i + '"></div>').appendTo(target); // See: http://api.jquery.com/jQuery/#jQuery2
               checkFileContent('site' + i,this.url,name,description);
               i++; // Increment the counter
             }

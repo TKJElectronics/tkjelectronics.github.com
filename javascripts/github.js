@@ -3,7 +3,7 @@ jQuery.fn.loadRepositoriesOrg = function() {
   var target = this;
   $.githubOrg("tkjelectronics",function(response) {
     //console.log('tkjelectronics',response);
-    target.append('<a href="https://github.com/TKJElectronics"><h1 style="color:black">TKJ Electronics</h1></a>');
+    target.append('<h1><a href="https://github.com/TKJElectronics">TKJ Electronics</a></h1>');
     if(response.meta["X-RateLimit-Remaining"] == 0) {
       //alert("Couldn't load content - You have reached the rate limit for API request to Github");
       return;
@@ -17,7 +17,7 @@ jQuery.fn.loadRepositoriesUsers = function() {
   var target = this;
   $.githubUser("lauszus",function(response) {
     //console.log('lauszus',response);
-    target.append('<a href="https://github.com/Lauszus"><h1 style="color:black">Lauszus</h1></a>');
+    target.append('<h1><a href="https://github.com/Lauszus">Lauszus</a></h1>');
     if(response.meta["X-RateLimit-Remaining"] == 0) {
       alert("Couldn't load content - You have reached the rate limit for API request to Github");
       return;

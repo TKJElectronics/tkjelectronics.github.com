@@ -36,7 +36,7 @@ jQuery.printRepos = function(repos, target) {
       if(this.name == 'Sanguino') // Add pages manually
         url = 'http://lauszus.github.com/Sanguino/';
       else if(this.name == "BalanduinoAndroidApp")
-        url = 'http://balanduino.tkjelectronics.com/';
+        url = 'http://git.tkjelectronics.com/BalanduinoAndroidApp/';
       else
         url = this.html_url;
       addToHtml(target,url,this.name,this.description);
